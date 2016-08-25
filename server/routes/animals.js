@@ -15,6 +15,12 @@ router.route('/')
          })
       });
 
+router.route('/petWithoutOwner')
+      .get((req,res) =>{
+         Animal.find({owner : {$exists : false} },(err,animals)=>{
+          res.status(err?400:200).send(err || animals);
+         })
+      });
 
 router.route('/:id')
        .get((req,res) =>{

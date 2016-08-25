@@ -3,6 +3,7 @@ import API from '../API'
 const TodoActions = {
 
   getAllPets: API.getAllPets,
+  petWithoutOwner:API.petWithoutOwner,
   
   createPets(pet){
     API.createPets(pet);
@@ -11,6 +12,7 @@ const TodoActions = {
    deletePet(id){
     API.deletePet(id);
     API.getAllPets();
+    API.petWithoutOwner();
 
    },
 
@@ -18,6 +20,8 @@ const TodoActions = {
     API.addOwner(petid,ownerid);
     API.getAllPets();
    }
+
+
 
 }
 

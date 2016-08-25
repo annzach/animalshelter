@@ -9,13 +9,13 @@ export default class ViewPets extends Component{
   constructor(){
     super();
     this.state = {
-      pets:AnimalStore.getAll()
+      pets:AnimalStore.getOwnerlessPets()
     }
     this._onChange = this._onChange.bind(this);
   }
 
  componentDidMount(){
-    TodoActions.getAllPets();
+    TodoActions.petWithoutOwner();
     AnimalStore.startListening(this._onChange);
   }
 
@@ -26,7 +26,7 @@ export default class ViewPets extends Component{
 
   _onChange() {
     this.setState({
-      pets: AnimalStore.getAll()
+      pets: AnimalStore.getOwnerlessPets()
     });
   }
 
@@ -45,7 +45,6 @@ export default class ViewPets extends Component{
           <th><h5><b>Name</b></h5></th>
           <th><h5><b>Type</b></h5></th>
           <th><h5><b>Age</b></h5></th>
-          <th><h5><b>Owner</b></h5></th>
           <th><h5><b>Action</b></h5></th>
         </tr>
       </thead>

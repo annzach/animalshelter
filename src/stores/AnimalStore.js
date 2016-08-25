@@ -2,6 +2,7 @@ import { EventEmitter } from 'events'
 import AppDispatcher from '../AppDispatcher'
 
 let _pets = [];
+let _ownerlesspets = [];
 
 class AnimalStore extends EventEmitter {
 
@@ -20,6 +21,10 @@ class AnimalStore extends EventEmitter {
                                 break;
         case 'DELETE_PET': this.emit('CHANGE');
                             break;
+
+        case 'PETS_WITHOUT_OWNER': _ownerlesspets = action.pets;
+                                         this.emit('CHANGE');
+                                         break;
       }
     });
 
@@ -40,6 +45,10 @@ class AnimalStore extends EventEmitter {
     console.log('insidegetall:')
     console.log('_pets:', _pets)
     return _pets;
+  }
+
+  getOwnerlessPets(){
+    return _ownerlesspets;
   }
 }
 

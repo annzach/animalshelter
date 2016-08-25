@@ -30,7 +30,6 @@ render(){
         <td>{name}</td>
         <td>{type}</td>
         <td>{age}</td>
-        <td>{owner.name}</td>
         <td><button id = {_id} onClick={this.deletePet} className ="btn btn-danger">Delete Me</button>
             <button id = {_id} onClick={this.addOwner} className ="btn btn-success">Add Owner</button>
         </td>
@@ -44,7 +43,6 @@ render(){
         <td>{name}</td>
         <td>{type}</td>
         <td>{age}</td>
-        <td>N/A</td>
         <td><button id = {_id} onClick={this.deletePet} className ="btn btn-danger">Delete Me</button>
             <button id = {_id} onClick={this.addOwner}className ="btn btn-success">Add Owner</button>
         </td>

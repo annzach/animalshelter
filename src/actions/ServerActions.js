@@ -21,6 +21,13 @@ const ServerActions={
     type:'DELETE_PET',
     data
   })
+ },
+
+ receivePetsWithoutOwner(pets){
+  AppDispatcher.dispatch({
+    type:'PETS_WITHOUT_OWNER',
+    pets
+  })
  }
 
 }

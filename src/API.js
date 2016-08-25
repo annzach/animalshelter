@@ -45,6 +45,12 @@ const API = {
   addOwner(petid,ownerid){
      axios.put(`/api/animals/${petid}/addOwner/${ownerid}`)
            .catch(console.error)
+  },
+  petWithoutOwner(){
+     axios.get(`api/animals/petWithoutOwner`)
+         .then(res=>res.data)
+         .then(ServerActions.receivePetsWithoutOwner)
+         .catch(console.error)
   }
 }
 
