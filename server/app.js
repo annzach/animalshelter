@@ -1,6 +1,6 @@
 // CONSTANTS
 const PORT = process.env.PORT || 8000;
-const MONGO_URI = process.env.MONGOLAB_URI || 'mongodb://localhost/animalshelter';
+const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/animalshelter';
 
 // PACKAGE REQUIRES
 const bodyParser = require('body-parser');
@@ -8,8 +8,7 @@ const cookieParser = require('cookie-parser');
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
-const webpack = require('webpack');
-const webpackConfig = require('../webpack.config');
+
 
 // DB CONNECT
 require('mongoose').connect(MONGO_URI, err => {
@@ -18,17 +17,25 @@ require('mongoose').connect(MONGO_URI, err => {
 });
 
 // APP DECLARATION
+
 const app = express();
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(path.join(__dirname,'../build')));
+}
+else{
 
 // WEBPACK CONFIG
-const compiler = webpack(webpackConfig);
+  const webpack = require('webpack');
+  const webpackConfig = require('../webpack.dev');
+  const compiler = webpack(webpackConfig);
 
-app.use(require('webpack-dev-middleware')(compiler, {
-  noInfo: true,
-  publicPath: webpackConfig.output.publicPath
-}));
+  app.use(require('webpack-dev-middleware')(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig.output.publicPath
+  }));
 
-app.use(require('webpack-hot-middleware')(compiler));
+  app.use(require('webpack-hot-middleware')(compiler));
+}
 
 // GENERAL MIDDLEWARE
 app.use(morgan('dev'));
