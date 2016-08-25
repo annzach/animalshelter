@@ -4,7 +4,6 @@ const path = require('path');
 module.exports = {
   
   entry: [
-    'webpack-hot-middleware/client?reload=true',
     'bootstrap-loader',
     './src/index'
   ],
