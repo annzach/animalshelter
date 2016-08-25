@@ -12,6 +12,11 @@ const TodoActions = {
     API.deletePet(id);
     API.getAllPets();
 
+   },
+
+   addOwner(petid,ownerid){
+    API.addOwner(petid,ownerid);
+    API.getAllPets();
    }
 
 }

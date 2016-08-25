@@ -1,5 +1,7 @@
 import React , {Component} from 'react'
 import TodoActions from '../actions/TodoActions'
+import { browserHistory } from 'react-router'
+
 
 export default class PetList extends Component {
   constructor(){
@@ -15,6 +17,7 @@ export default class PetList extends Component {
 
   addOwner(e){
     console.log('addOwner',e.target.id);
+    browserHistory.push({pathname:'/ViewPerson', query:{petid:e.target.id}});
   }
 
 

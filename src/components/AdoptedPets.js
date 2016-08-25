@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import AnimalStore from '../stores/AnimalStore'
 import TodoActions from '../actions/TodoActions'
 import PetList from './PetList'
+import AdoptedList from './AdoptedList'
 
-
-export default class ViewPets extends Component{
+export default class AdoptedPets extends Component{
 
   constructor(){
     super();
@@ -34,7 +34,8 @@ export default class ViewPets extends Component{
   render(){
    const petLists = this.state.pets.map(pet =>{
       return (
-        <PetList key = {pet._id} {...pet}/>
+
+        <AdoptedList key = {pet._id} {...pet}/>
         )
     })
     return(

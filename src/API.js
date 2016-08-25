@@ -41,6 +41,10 @@ const API = {
            .then(res=>res.data)
            .then(PersonServerActions.deletePerson)
            .catch(console.error)
+  },
+  addOwner(petid,ownerid){
+     axios.put(`/api/animals/${petid}/addOwner/${ownerid}`)
+           .catch(console.error)
   }
 }
 

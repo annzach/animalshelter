@@ -24,6 +24,10 @@ const App = React.createClass({
          <button>
           <Link to = '/ViewPerson'>ViewPerson</Link>
         </button>
+
+          <button>
+          <Link to = '/AdoptedPets'>AdoptedPets</Link>
+        </button>
         
         <Welcome/>
     

@@ -8,6 +8,7 @@ import Welcome from './components/Welcome'
 import ViewPets from './components/ViewPets'
 import ViewPerson from './components/ViewPerson'
 import PersonList from './components/PersonList'
+import AdoptedPets from './components/AdoptedPets'
 
 import './css/style.css'
 
@@ -18,7 +19,8 @@ render(
     <Route path = 'CreatePets' component ={CreatePets}/>
     <Route path = 'ViewPets' component={ViewPets}/>
     <Route path = 'CreatePerson' component ={CreatePerson}/>
-    <Route path = 'ViewPerson' component = {ViewPerson}></Route>
+    <Route path = 'ViewPerson' component = {ViewPerson}/>
+    <Route path = 'AdoptedPets' component = {AdoptedPets}></Route>
    </Route>
   </Router>,
   document.getElementById('root'));

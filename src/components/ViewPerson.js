@@ -3,6 +3,7 @@ import PeopleStore from '../stores/PeopleStore'
 import PersonTodoActions from '../actions/PersonTodoActions'
 import PersonList from './PersonList'
 
+
 export default class ViewPerson extends Component{
   constructor(){
     super();
@@ -29,9 +30,10 @@ export default class ViewPerson extends Component{
 
 
   render(){
+    console.log('this.props.location.query.petid:', this.props.location.query.petid)
    const peopleLists =this.state.people.map(person=>{
     return (
-       <PersonList key = {person._id}{...person}/>
+       <PersonList key = {person._id}{...person} petid={this.props.location.query.petid}/>
       )
    })
     return(
