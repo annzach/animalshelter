@@ -40,11 +40,12 @@ export default class ViewPets extends Component{
     <table className="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Age</th>
-          <th>Owners Name</th>
-          <th>Make Changes</th>
+          <th><h5><b>Image</b></h5></th>
+          <th><h5><b>Name</b></h5></th>
+          <th><h5><b>Type</b></h5></th>
+          <th><h5><b>Age</b></h5></th>
+          <th><h5><b>Owner</b></h5></th>
+          <th><h5><b>Action</b></h5></th>
         </tr>
       </thead>
       <tbody>

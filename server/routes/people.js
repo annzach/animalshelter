@@ -15,7 +15,25 @@ router.route('/')
          })
       });
 
+router.route('/:id')
+       .get((req,res) =>{
+  Person.findById(req.params.id, (err,person)=>{
+    if(err||!person)
+      return res.status(400).send(err||'Person not found')
+    res.send(person);
+     
+   })
+})
+     .delete((req,res)=>{
+       Person.findByIdAndRemove(req.params.id,(err,person)=>{
+        if(err || !person) 
+          res.status(400).send(err||'Person not found');
+        else
+          res.send(person.name+'is now deleted');
+        
+       })
 
+     })
 
 
 module.exports = router;

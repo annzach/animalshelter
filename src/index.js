@@ -7,6 +7,8 @@ import CreatePerson from './components/CreatePerson'
 import Welcome from './components/Welcome'
 import ViewPets from './components/ViewPets'
 import ViewPerson from './components/ViewPerson'
+import PersonList from './components/PersonList'
+
 import './css/style.css'
 
 

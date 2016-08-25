@@ -1,13 +1,19 @@
 import React, { Component } from 'react'
+import { browserHistory } from 'react-router'
+import PersonTodoActions from '../actions/PersonTodoActions'
 
 export default class CreatePerson extends Component{
   constructor(){
     super();
     this.state = {
       name:'',
-      email:'',
+      email:''
     }
   this.submitPerson = this.submitPerson.bind(this);
+  }
+
+  resetForm(){
+    this.setState({name:'',email:''});
   }
 
   submitPerson(e){
@@ -17,8 +23,12 @@ export default class CreatePerson extends Component{
       email:this.state.email
 
     }
-    console.log(person,{person})
-
+    console.log('person',{person})
+    PersonTodoActions.createPeople(person)
+    this.setState({person:''});
+    this.resetForm();
+    browserHistory.push('/ViewPerson')
+    
   }
 
   render(){
@@ -35,6 +45,7 @@ export default class CreatePerson extends Component{
           <button id="petsmtid"className = "btn btn-warning">Add me</button>
 
         </form>
+
       </div>
       )
   }

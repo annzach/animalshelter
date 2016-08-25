@@ -1,5 +1,6 @@
 import axios from 'axios'
 import ServerActions from './actions/ServerActions'
+import PersonServerActions from './actions/PersonServerActions'
 
 const API = {
 
@@ -21,6 +22,25 @@ const API = {
          .then(res=>res.data)
          .then(ServerActions.deletePet)
          .catch(console.error);
+  },
+  createPeople(person){
+      axios.post(`/api/people`,person)
+         .then(res => res.data)
+         .then(PersonServerActions.receivePerson)
+         .catch(console.error)
+  },
+  getAllPeople(){
+      axios.get(`/api/people`)
+         .then(res=>res.data)
+         .then(PersonServerActions.receiveAllPeople)
+         .catch(console.error)
+
+  },
+  deletePerson(id){
+      axios.delete('/api/people/'+id)
+           .then(res=>res.data)
+           .then(PersonServerActions.deletePerson)
+           .catch(console.error)
   }
 }
 
