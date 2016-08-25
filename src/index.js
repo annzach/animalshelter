@@ -12,7 +12,6 @@ import AdoptedPets from './components/AdoptedPets'
 
 import './css/style.css'
 
-
 render(
   <Router history = {browserHistory}>
    <Route path = '/' component ={App}>
@@ -25,8 +24,3 @@ render(
   </Router>,
   document.getElementById('root'));
 
-
-
-
-
- 
